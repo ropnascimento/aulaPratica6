@@ -7,7 +7,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    steps: 
+    steps:
     - uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -16,8 +16,9 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-
+        pip install -r requirements.txt
     - name: Test with pytest
       run: |
-
-        teste.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+        pip install pytest
+        pip install pytest-cov
+        pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
