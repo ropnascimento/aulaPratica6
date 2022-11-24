@@ -1,6 +1,6 @@
 import unittest
 
-@pytest.fixture
+@unittest.fixture
 def teste(x):
   return x + 3
 
